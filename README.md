@@ -16,8 +16,9 @@ To configure the keywords and/or a location to filter the twitter data, you need
 If you want to change the amount of elasticsearch nodes (default to 1), VM hardware settings, or IPs, you can edit the values in the **Vagranfile** file.
 
 ### How to run it?
-Once you have them installed, download this repo, and then execute inside this repo folder the following command, from a command line prompt:
-vagrant up
+Download this repo, and then, from a command line prompt inside the repo folder,  execute:
+
+####**vagrant up**
 
 ## that's it!
 
