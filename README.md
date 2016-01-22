@@ -1,6 +1,8 @@
 # Twitter Trends Dashboard
 ## Based on keywords and geographic location.
 
+![Dashboard Screenshot placeholder](/Dashboard.png?raw=true "Twitter Kibana Dashboard")
+
 ### Which are the requirements to run this Dashboard?
 You need virtualbox or libvirt and vagrant installed.
 
