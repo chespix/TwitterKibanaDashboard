@@ -1,6 +1,6 @@
 {
   "template": "twitter",
-  "order":    1,
+  "order":    1, 
   "settings": {
     "number_of_shards": 3
   },
