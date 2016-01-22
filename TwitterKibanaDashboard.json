@@ -1,18 +1,18 @@
 [
   {
-    "_id": "BasicDashboard",
+    "_id": "Twitter-Trends-Dashboard",
     "_type": "dashboard",
     "_source": {
       "title": "Twitter Trends Dashboard",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[\n  {\n    \"col\": 5,\n    \"id\": \"BasicMap\",\n    \"panelIndex\": 1,\n    \"row\": 1,\n    \"size_x\": 8,\n    \"size_y\": 4,\n    \"type\": \"visualization\"\n  },\n  {\n    \"col\": 1,\n    \"id\": \"BasicMetric\",\n    \"panelIndex\": 3,\n    \"row\": 5,\n    \"size_x\": 12,\n    \"size_y\": 2,\n    \"type\": \"visualization\"\n  },\n  {\n    \"col\": 1,\n    \"id\": \"BasicPieChart\",\n    \"panelIndex\": 4,\n    \"row\": 1,\n    \"size_x\": 4,\n    \"size_y\": 4,\n    \"type\": \"visualization\"\n  },\n  {\n    \"col\": 5,\n    \"id\": \"BasicTimeline\",\n    \"panelIndex\": 5,\n    \"row\": 1,\n    \"size_x\": 8,\n    \"size_y\": 2,\n    \"type\": \"visualization\",\n    \"$scope\": \"$SCOPE\",\n    \"$el\": {\n      \"0\": {},\n      \"length\": 1\n    }\n  },\n  {\n    \"col\": 1,\n    \"id\": \"BasicMarkdown\",\n    \"panelIndex\": 6,\n    \"row\": 1,\n    \"size_x\": 4,\n    \"size_y\": 2,\n    \"type\": \"visualization\"\n  }\n]",
-      "optionsJSON": "{\n  \"darkTheme\": false\n}",
-      "uiStateJSON": "{\n  \"P-1\": {\n    \"spy\": {\n      \"mode\": {\n        \"fill\": false,\n        \"name\": null\n      }\n    }\n  }\n}",
+      "panelsJSON": "[{\"col\":5,\"id\":\"BasicMap\",\"panelIndex\":1,\"row\":3,\"size_x\":8,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"BasicMetric\",\"panelIndex\":3,\"row\":7,\"size_x\":12,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"BasicPieChart\",\"panelIndex\":4,\"row\":3,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":5,\"id\":\"BasicTimeline\",\"panelIndex\":5,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"BasicMarkdown\",\"panelIndex\":6,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"id\":\"BasicSearch\",\"type\":\"search\",\"panelIndex\":7,\"size_x\":12,\"size_y\":4,\"col\":1,\"row\":9,\"columns\":[\"user.created_at\",\"user.location\",\"user.name\",\"user.screen_name\",\"text\",\"coordinates.coordinates\"],\"sort\":[\"@timestamp\",\"desc\"]}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-1\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}}}",
       "version": 1,
       "timeRestore": false,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\n  \"filter\": [\n    {\n      \"query\": {\n        \"query_string\": {\n          \"analyze_wildcard\": true,\n          \"query\": \"*\"\n        }\n      }\n    }\n  ]\n}"
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
       }
     }
   }
