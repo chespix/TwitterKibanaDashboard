@@ -6,9 +6,10 @@ node /^ls\d+/ {
   #You can setup both, hashtags and location, or you can just comment out one of those
 
   #By which hashtags you want to filter the twitters?
-  $twitter_keywords = [ "#DevOps", "#SRE", "#SysOps" ]
-  #By which location you want to filter the twitters? First downleft then upright. Example bellow is for NewYork City. You can define more than one box. Just concatenate pairs of locations for the boxes you want to show.
-  $twitter_locations = "-74,40,-73,41"
+  $twitter_keywords = [ '#DevOps', '#SRE', '#SysOps' ]
+  #By which location you want to filter the twitters? Coordinates go in strict order. Beware that  longitude comes before latitude (google maps gives you the values inversed). For reference
+  #https://dev.twitter.com/streaming/overview/request-parameters#locations
+  $twitter_locations = '-74,40,-73,41'
   
   #Twitter input config. You need to create a Twitter app to get this values.
   $twitter_consumer_key = "REDACTED"
