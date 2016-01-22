@@ -90,13 +90,6 @@ node /^el\d+/ {
     datadir        => "/var/lib/es-data-$hostname",
   }
 
-  elasticsearch::template { "template":
-    ensure         => absent
-  #  content        => '{"template":"*","settings":{"number_of_replicas":1}}',
-  #  host           => $::ipaddress_eth1,
-  #  port           => 9200
-  }
-
   elasticsearch::plugin { 'mobz/elasticsearch-head':
     instances      => 'es01'
   }
@@ -120,5 +113,9 @@ node /^el\d+/ {
   #require => Es_Instance_Conn_Validator['es01'],
   elasticsearch_url => "http://$::ipaddress_eth1:9200"
   }
+  
+  elasticsearch::template { 'twitter':
+  file => 'puppet:///modules/logstash/files/twitter_template.json'
+}
 
 }

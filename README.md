@@ -39,7 +39,7 @@ Theres one elasticsearch node which serves as the DB and the search engine, and 
 
 
 ### Hey, I dont see nothing in kibana, how's the deal?
-Kibana comes empty by default. you need to define a search, a couple of visuals and then a dashboard.
+Kibana comes empty by default. you need to define an index (twitter), a search, a couple of visuals and then a dashboard.
 if you want some examples, you can import the three json files into kibana, and they will set you up a nice dashboard.
 
 **TwitterKibanaDashboard.json**
