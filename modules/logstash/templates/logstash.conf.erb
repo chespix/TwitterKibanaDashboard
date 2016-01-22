@@ -1,0 +1,30 @@
+input {
+        twitter {
+                consumer_key => "<%= @twitter_consumer_key %>"
+                consumer_secret => "<%= @twitter_consumer_secret %>"
+                oauth_token => "<%= @twitter_oauth_token %>"
+                oauth_token_secret => "<%= @twitter_oauth_token_secret %>"
+				<% if !((defined?(@twitter_keywords)).nil?) -%>
+                keywords => [<% @twitter_keywords.join('", "').each do |val| %>"<%= val %>"<% end -%>]
+				<% end -%>
+				<% if !((defined?(@twitter_locations)).nil?) -%>
+				locations => "<%= @twitter_locations %>"
+				<% end -%>
+				
+                full_tweet => true
+        }
+}
+
+filter {
+}
+
+output {
+        stdout { codec => dots }
+        elasticsearch {
+                hosts  =>  [<% @elastic_nodes.join('", "').each do |val| %>"<%= val %>"<% end -%>]
+                index => "twitter"
+                document_type => "tweet"
+                template => "/etc/logstash/template/twitter_template.json"
+                template_name => "twitter"
+        }
+}

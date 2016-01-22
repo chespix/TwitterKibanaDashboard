@@ -1,0 +1,76 @@
+[
+  {
+    "_id": "BasicMap",
+    "_type": "visualization",
+    "_source": {
+      "title": "Twitter Heat Map",
+      "visState": "{\n  \"type\": \"tile_map\",\n  \"params\": {\n    \"mapType\": \"Scaled Circle Markers\",\n    \"isDesaturated\": true,\n    \"addTooltip\": true,\n    \"heatMaxZoom\": 16,\n    \"heatMinOpacity\": 0.1,\n    \"heatRadius\": 25,\n    \"heatBlur\": 15,\n    \"heatNormalizeData\": true,\n    \"wms\": {\n      \"enabled\": false,\n      \"url\": \"https://basemap.nationalmap.gov/arcgis/services/USGSTopo/MapServer/WMSServer\",\n      \"options\": {\n        \"version\": \"1.3.0\",\n        \"layers\": \"0\",\n        \"format\": \"image/png\",\n        \"transparent\": true,\n        \"attribution\": \"Maps provided by USGS\",\n        \"styles\": \"\"\n      }\n    },\n    \"spyPerPage\": 10\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {}\n    },\n    {\n      \"id\": \"2\",\n      \"type\": \"geohash_grid\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"coordinates.coordinates\",\n        \"autoPrecision\": true,\n        \"mapZoom\": 7,\n        \"mapCenter\": [\n          18.994608853186378,\n          -99.1351318359375\n        ],\n        \"precision\": 4\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"spy\": {\n    \"mode\": {\n      \"name\": null,\n      \"fill\": false\n    }\n  }\n}",
+      "description": "",
+      "savedSearchId": "BasicSearch",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "BasicMarkdown",
+    "_type": "visualization",
+    "_source": {
+      "title": "Dharmatec",
+      "visState": "{\n  \"type\": \"markdown\",\n  \"params\": {\n    \"markdown\": \"# Twiter Analysis Dashboard\\n## Find trends by keyword and locatoin\\nBrought to you by http://www,Dharmatec.com.ar\"\n  },\n  \"aggs\": [],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"*\",\n      \"analyze_wildcard\": true\n    }\n  },\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "BasicMetric",
+    "_type": "visualization",
+    "_source": {
+      "title": "Twitter Metrics",
+      "visState": "{\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"params\": {},\n      \"schema\": \"metric\",\n      \"type\": \"count\"\n    },\n    {\n      \"id\": \"2\",\n      \"params\": {\n        \"field\": \"user.followers_count\",\n        \"percents\": [\n          50\n        ]\n      },\n      \"schema\": \"metric\",\n      \"type\": \"median\"\n    },\n    {\n      \"id\": \"3\",\n      \"params\": {\n        \"field\": \"user.friends_count\"\n      },\n      \"schema\": \"metric\",\n      \"type\": \"avg\"\n    }\n  ],\n  \"listeners\": {},\n  \"params\": {\n    \"fontSize\": 60\n  },\n  \"type\": \"metric\"\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "BasicSearch",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "BasicPieChart",
+    "_type": "visualization",
+    "_source": {
+      "title": "Users which Tweet most",
+      "visState": "{\n  \"type\": \"pie\",\n  \"params\": {\n    \"shareYAxis\": true,\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"isDonut\": false,\n    \"spyPerPage\": 10\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {}\n    },\n    {\n      \"id\": \"2\",\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"user.screen_name\",\n        \"size\": 10,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"spy\": {\n    \"mode\": {\n      \"name\": null,\n      \"fill\": false\n    }\n  }\n}",
+      "description": "",
+      "savedSearchId": "BasicSearch",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "BasicTimeline",
+    "_type": "visualization",
+    "_source": {
+      "title": "Twitter Count Timeline",
+      "visState": "{\n  \"type\": \"histogram\",\n  \"params\": {\n    \"shareYAxis\": true,\n    \"addTooltip\": true,\n    \"addLegend\": false,\n    \"scale\": \"linear\",\n    \"mode\": \"stacked\",\n    \"times\": [],\n    \"addTimeMarker\": true,\n    \"defaultYExtents\": true,\n    \"setYExtents\": false,\n    \"yAxis\": {}\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {}\n    },\n    {\n      \"id\": \"2\",\n      \"type\": \"date_histogram\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"@timestamp\",\n        \"interval\": \"auto\",\n        \"customInterval\": \"2h\",\n        \"min_doc_count\": 1,\n        \"extended_bounds\": {}\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "BasicSearch",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  }
+]
