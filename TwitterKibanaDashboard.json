@@ -6,9 +6,9 @@
       "title": "Twitter Trends Dashboard",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"col\":5,\"id\":\"BasicMap\",\"panelIndex\":1,\"row\":3,\"size_x\":8,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"BasicMetric\",\"panelIndex\":3,\"row\":7,\"size_x\":12,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"BasicPieChart\",\"panelIndex\":4,\"row\":3,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":5,\"id\":\"BasicTimeline\",\"panelIndex\":5,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"BasicMarkdown\",\"panelIndex\":6,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"id\":\"BasicSearch\",\"type\":\"search\",\"panelIndex\":7,\"size_x\":12,\"size_y\":4,\"col\":1,\"row\":9,\"columns\":[\"user.created_at\",\"user.location\",\"user.name\",\"user.screen_name\",\"text\",\"coordinates.coordinates\"],\"sort\":[\"@timestamp\",\"desc\"]}]",
+      "panelsJSON": "[{\"col\":1,\"id\":\"BasicPieChart\",\"panelIndex\":4,\"row\":3,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":5,\"id\":\"BasicTimeline\",\"panelIndex\":5,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"BasicMarkdown\",\"panelIndex\":6,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"user.created_at\",\"user.location\",\"user.name\",\"user.screen_name\",\"text\",\"coordinates.coordinates\"],\"id\":\"BasicSearch\",\"panelIndex\":7,\"row\":9,\"size_x\":12,\"size_y\":4,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":5,\"id\":\"Twitter-Heat-Map\",\"panelIndex\":9,\"row\":3,\"size_x\":8,\"size_y\":4,\"type\":\"visualization\"},{\"id\":\"Twitter-Metrics\",\"type\":\"visualization\",\"panelIndex\":10,\"size_x\":12,\"size_y\":2,\"col\":1,\"row\":7}]",
       "optionsJSON": "{\"darkTheme\":false}",
-      "uiStateJSON": "{\"P-1\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}}}",
+      "uiStateJSON": "{}",
       "version": 1,
       "timeRestore": false,
       "kibanaSavedObjectMeta": {

@@ -7,6 +7,19 @@ Vagrant.configure(2) do |config|
 
   config.ssh.pty = true
   
+  # 1 Elastic Node version.
+   hosts = {
+    'el1' => { 'ip' => '192.168.124.101', 'cpus' => 4, 'memory' => 2048 },
+    'ls1' => { 'ip' => '192.168.124.121', 'cpus' => 1, 'memory' => 1024 },
+  }
+  
+  # 2 Elastic Nodes version.
+  # hosts = {
+  #  'el1' => { 'ip' => '192.168.124.101', 'cpus' => 1, 'memory' => 1024 },
+  #  'el2' => { 'ip' => '192.168.124.102', 'cpus' => 1, 'memory' => 1024 },
+  #  'ls1' => { 'ip' => '192.168.124.121', 'cpus' => 1, 'memory' => 1024 },
+  # }
+  
   # 3 Elastic Nodes cluster version. 
   # hosts = {
     # 'el1' => { 'ip' => '192.168.124.101', 'cpus' => 1, 'memory' => 1024 },
@@ -14,12 +27,6 @@ Vagrant.configure(2) do |config|
     # 'el3' => { 'ip' => '192.168.124.103', 'cpus' => 1, 'memory' => 1024 },
     # 'ls1' => { 'ip' => '192.168.124.121', 'cpus' => 1, 'memory' => 1024 },
   # }
-  
-  # 1 Elastic Node version.
-   hosts = {
-    'el1' => { 'ip' => '192.168.124.101', 'cpus' => 4, 'memory' => 2048 },
-    'ls1' => { 'ip' => '192.168.124.121', 'cpus' => 1, 'memory' => 1024 },
-  }
 
   hosts.each do |host, params|
     config.vm.define host, autostart: true do |host_config|

@@ -26,12 +26,12 @@ node /^ls\d+/ {
   package { "nss"         : ensure => 'latest',    }
 
   
-  yumrepo { "LogStash":
-    baseurl => "http://packages.elastic.co/logstash/2.1/centos",
-    descr => "Logstash repository for 2.1.x packages",
+  yumrepo { 'LogStash':
+    baseurl => 'http://packages.elastic.co/logstash/2.1/centos',
+    descr => 'Logstash repository for 2.1.x packages',
     enabled => 1,
     gpgcheck => 1,
-	gpgkey => "http://packages.elastic.co/GPG-KEY-elasticsearch",
+	gpgkey => 'http://packages.elastic.co/GPG-KEY-elasticsearch',
     ensure => 'present',
   }
   
@@ -39,11 +39,12 @@ node /^ls\d+/ {
     manage_repo    => false,
     repo_version => '2.1',
     java_install => true,
-	require => Yumrepo["LogStash"],
+	require => Yumrepo['LogStash'],
   }
   
   logstash::configfile {'logstash_config':
     content => template('logstash/logstash.conf.erb'),
+	require => File['twitter_template.json'],
   }
   
   file { '/etc/logstash/template':
@@ -53,7 +54,8 @@ node /^ls\d+/ {
   file { 'twitter_template.json':
     path  => '/etc/logstash/template/twitter_template.json',
     ensure  => file,
-    content  => file("logstash/twitter_template.json"),
+    content  => file('logstash/twitter_template.json'),
+	require => File['/etc/logstash/template'],
   }
 
 }
@@ -67,8 +69,6 @@ node /^el\d+/ {
   package { "acpid"       : ensure => 'installed', }
   package { "nss"         : ensure => 'latest',    }
 
-
-
   class { 'elasticsearch': 
     manage_repo    => true,
     java_install   => true,
@@ -77,7 +77,7 @@ node /^el\d+/ {
       'cluster.name'             => 'es-cluster',
       'index.number_of_replicas' => '1',
       'index.number_of_shards'   => '3',
-      'network.host'             => $::ipaddress_eth1,
+      'network.host'             => '0.0.0.0',
       'http.cors.enabled'        => true,
       'node.data'                => true,
       'node.master'              => true,
@@ -86,26 +86,25 @@ node /^el\d+/ {
     }
   }
 
-  elasticsearch::instance { "es01":
-    datadir        => "/var/lib/es-data-$hostname",
+  elasticsearch::instance { 'es01':
+    datadir        => '/var/lib/es-data-$hostname',
   }
 
   elasticsearch::plugin { 'mobz/elasticsearch-head':
     instances      => 'es01'
   }
 
-  elasticsearch::plugin { 'royrusso/elasticsearch-hq/v2.0.3':
+  elasticsearch::plugin { 'royrusso/elasticsearch-hq':
     instances      => 'es01'
   }
 
-  elasticsearch::plugin { 'lmenezes/elasticsearch-kopf/2.0':
+  elasticsearch::plugin { 'lmenezes/elasticsearch-kopf':
     instances      => 'es01'
   }
 
-/*   es_instance_conn_validator { 'es01' :
-    server => $::ipaddress_eth1,
-    port   => '9200',
-  } */
+  elasticsearch::template { 'twitter':
+    file => 'puppet:///modules/elasticsearch/twitter_template.json'
+	}
   
   class { 'kibana4': 
   version =>  '4.3.0-linux-x64',
@@ -113,9 +112,5 @@ node /^el\d+/ {
   #require => Es_Instance_Conn_Validator['es01'],
   elasticsearch_url => "http://$::ipaddress_eth1:9200"
   }
-  
-  elasticsearch::template { 'twitter':
-  file => 'puppet:///modules/logstash/files/twitter_template.json'
-}
 
 }
