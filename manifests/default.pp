@@ -8,7 +8,7 @@ node /^ls\d+/ {
   #By which hashtags you want to filter the twitters?
   $twitter_keywords = [ "#DevOps", "#SRE", "#SysOps" ]
   #By which location you want to filter the twitters? First downleft then upright. Example bellow is for NewYork City. You can define more than one box. Just concatenate pairs of locations for the boxes you want to show.
-  $twitter_locations = "-74.40,-73.41"
+  $twitter_locations = "-74,40,-73,41"
   
   #Twitter input config. You need to create a Twitter app to get this values.
   $twitter_consumer_key = "REDACTED"
