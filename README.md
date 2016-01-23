@@ -17,9 +17,9 @@ If you want to change the amount of elasticsearch nodes (default to 1), VM hardw
 
 ### How to run it?
 Download this repo, and then, from a command line prompt inside the repo folder,  execute:
-
+```
 ####**vagrant up**
-
+```
 ## that's it!
 
 Now you can locally access your dashboard on
@@ -33,6 +33,11 @@ http://192.168.124.101:9200/_plugin/hq/
 
 http://192.168.124.101:9200/_plugin/head/
 
+### How do I change the search terms or the coordinates without having to rebuild to whole thing? 
+You have to update the new desired values in the **/manifest/default** file, and then from a command line inside the **vagrantfile** folder, execute:
+```
+####**vagrant provision --provision-with puppet ls1**
+```
 ### How it works?
 Vagrant created the required VMs to execute the dashboard. It uses puppet to provision the VMs. 
 Theres one elasticsearch node which serves as the DB and the search engine, and there's one logstash node which takes twitter and formats the output for elasticsearch. 
